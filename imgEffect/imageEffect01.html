@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageEffect01-jQuery</title>
+      <!--jquery-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!--css-->
+      <link href="imageEffect01.css" rel="stylesheet">
+</head>
+<body>
+    <!-- main -->
+    <main>
+        <div class="slider-wrap">
+            <div class="slider-img">
+                <div class="slider"><img src="img/su01.jpg" alt="이미지1"><span>이미지1</span></div>
+                <div class="slider"><img src="img/su02.jpg" alt="이미지2"><span>이미지2</span></div>
+                <div class="slider"><img src="img/su03.jpg" alt="이미지3"><span>이미지3</span></div>
+                <div class="slider"><img src="img/su04.jpg" alt="이미지4"><span>이미지4</span></div>
+                <div class="slider"><img src="img/su05.jpg" alt="이미지5"><span>이미지5</span></div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    
+    <!-- info -->
+    <div class="info left">
+        <h1><a href="slider00.html">jQuery Slider Effect01</a></h1>
+        <p>이미지 슬라이드 효과</p>
+    </div>
+    <!-- //info -->
+
+    <script>
+        let sliderWrap = $(".slider-wrap");
+        let sliderImg = $(".slider-img");
+        let slider = $(".slider");
+
+        let currentIndex=0; //첫번째 이미지(현재 보이는 이미지)
+        let sliderCount = slider.length; // 이미지 개수
+        setInterval(function(){ //일정 시간마다 반복
+            //document.write("ddd");
+
+            let nextIndex = (currentIndex + 1) % sliderCount ;
+            slider.eq(currentIndex).fadeOut(); // 첫번째 이미지 (현재보이는이미지)를 천천히 사라지게
+            slider.eq(nextIndex).fadeIn(); // 두번째 이미지(다음 이미지)를 나타나게
+
+            //console.log("currentIndex : " + currentIndex);
+            //console.log("nextIndex : " + nextIndex);
+
+            currentIndex= nextIndex;
+
+        }, 2000); // 1초 = 1000
+       //  setTimeout(); // 한번만 실행
+
+
+    </script>
+</body>
+</html>
